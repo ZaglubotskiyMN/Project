@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class test {
+public class projectone {
     public WebDriver webDriver;
 
 @Before
