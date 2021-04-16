@@ -1,3 +1,5 @@
+package TestsUI;
+
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -38,13 +40,11 @@ public class AuthorizationPage {
 
     public static boolean loginverification(){
         String userlogintext =Selenide.$(loginVerification).getText();
-        boolean checklogin =(userlogintext=="USER63");
-        return checklogin;
+        return "USER63".equals(userlogintext);
     }
 
     @Step(value = "invalid password")
     public void invalidpassword(){
-       // if ()
         Selenide.$(logout).click();
         Selenide.$(inputLogin).sendKeys(log);
         Selenide.$(inputpass).sendKeys(badpassword);
@@ -53,8 +53,11 @@ public class AuthorizationPage {
 
     public static boolean invalidauthorization(){
         String userlogintext =Selenide.$(invalidUsernameorPassword).getText();
-        boolean checkmessage =(userlogintext=="Invalid username or password!");
-        return checkmessage;
+        return "Invalid username or password!".equals(userlogintext);
+    }
+
+    public void logout(){
+        Selenide.$(logout).click();
     }
 
 
