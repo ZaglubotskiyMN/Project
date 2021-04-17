@@ -1,5 +1,6 @@
 package TestsUI;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Description;
@@ -8,6 +9,7 @@ import org.junit.*;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +28,14 @@ public class TestsProjectUI {
         authorizationPage = new AuthorizationPage();
         bookPageViewing = new BookPageViewing();
         workingWithBooks = new WorkingWithBooks();
+
+        Configuration.browser = "chrome"; // название браузера
+        Configuration.browserVersion = "90.0"; // версия браузера
+        Configuration.remote = "http://http://188.130.155.80:4444//wd/hub"; // адрес Selenoid
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true); // разрешить удаленный доступ к  рабочему столу контейнера
+        capabilities.setCapability("enableVideo", true); // разрешить запись видео
+        Configuration.browserCapabilities = capabilities;
 
 
     }
