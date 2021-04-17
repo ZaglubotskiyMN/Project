@@ -91,7 +91,6 @@ public class TestsProjectUI {
     @After
 
     public void teardown() throws InterruptedException {
-        Thread.sleep(3000);
         if (webDriver != null) {
             webDriver.quit();
         }
